@@ -1,6 +1,8 @@
+import { apiURL } from "./api_url.js";
+
 const list = document.getElementById("list");
 
-fetch("https://pokeapi.co/api/v2/pokemon/")
+fetch(apiURL)
   .then((res) => res.json())
   .then((data) => {
     const pokemons = data.results;
@@ -18,16 +20,18 @@ fetch("https://pokeapi.co/api/v2/pokemon/")
 
 function createPokemonCard(pokemon) {
   const card = document.createElement("div");
-  card.classList.add('card');
+  card.classList.add("card");
   card.innerHTML = `
     <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
     <div>
       <h5 class="poke-name">${pokemon.name}</h5>
       <p>
         <strong>ID:</strong> ${pokemon.id} <br>
-        <strong>Tipo:</strong> ${pokemon.types.map(t => t.type.name).join(', ')}
+        <strong>Tipo:</strong> ${pokemon.types
+          .map((t) => t.type.name)
+          .join(", ")}
       </p>
     </div>
   `;
-  list.appendChild(card)
+  list.appendChild(card);
 }

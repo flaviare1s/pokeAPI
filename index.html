@@ -5,12 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+
+  <script type="module" src="script.js" defer></script>
+  <script type="module" src="script2.js" defer></script>
   <title>Pokedex</title>
 </head>
 
 <body>
   <h1>Pokemons</h1>
+  <form id="search-form" class="form">
+    <input type="text" id="search-input" class="input" placeholder="Digite o nome ou o ID do Pokemon">
+    <button class="btn">Buscar</button>
+  </form>
+
+  <div class="main">
+    <button class="btn-change" id="back"><img src="./arrow_back.svg" alt="back"></button>
+    <div id="container"></div>
+    <button class="btn-change" id="forward"><img src="./arrow_forward.svg" alt="forward"></button>
+  </div>
   <div id="list"></div>
 </body>
 
