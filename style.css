@@ -11,21 +11,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 50px 0;
 }
 
 h1 {
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
 #list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
 }
 
 .card {
     border: 1px solid black;
-    padding: 10px;
+    padding: 10px 30px;
     background-color: rgba(167, 211, 167, 0.58);
     border-radius: 3px;
 }
@@ -39,7 +40,13 @@ img {
     width: 100%;
 }
 
-@media screen and (min-width: 500px) and (max-width: 700px) {
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+    #list {
+        grid-template-columns: 1fr 1fr 1fr;
+    } 
+}
+
+@media screen and (min-width: 501px) and (max-width: 700px) {
     #list {
         grid-template-columns: 1fr 1fr;
     } 
