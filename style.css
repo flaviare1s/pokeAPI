@@ -24,24 +24,28 @@ h1 {
     align-items: center;
     justify-content: space-around;
     width: 70%;
+    border: 2px solid black;
+    border-radius: 3px;
 }
 
 .input {
     height: 50px;
-    border-radius: 3px;
     background-color: #eee;
     width: 100%;
     padding: 0 20px;
+    border: none;
 }
 
 .btn {
     cursor: pointer;
     height: 50px;
     width: 150px;
-    margin-left: -5px;
+    margin-left: -1px;
     background-color: rgba(167, 211, 167, 0.58);
     border-radius: 0px 3px 3px 0px;
+    border: none;
     transition: 0.3s;
+    border-left: 1px solid #000;
 }
 
 .btn:hover {
