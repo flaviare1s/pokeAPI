@@ -6,9 +6,9 @@ const renderDetails = (details) => {
   const container = document.getElementById("container");
   container.innerHTML = `
         <div >
-            <img src="${details.sprites.front_default}"/>
-            <h2>${details.name}</h2>
-            <p>#${details.id}</p>
+            <img class="poke-img" src="${details.sprites.front_default}"/>
+            <h2 class="poke-name">${details.name}</h2>
+            <p class="poke-id">#${details.id}</p>
         </div>
     `;
 };
@@ -16,7 +16,7 @@ const renderDetails = (details) => {
 const loadPokemon = async (nextId) => {
   const response = await fetch(apiURL + nextId);
   const data = await response.json();
-  currentId = +nextId;
+  currentId = data.id;
   renderDetails(data);
 };
 

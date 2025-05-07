@@ -6,7 +6,7 @@
 
 body {
     font-family: monospace;
-    background: rgb(129, 203, 129);
+    background-color: #eee;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +29,7 @@ h1 {
 .input {
     height: 50px;
     border-radius: 3px;
-    background-color: rgb(129, 203, 129);
+    background-color: #eee;
     width: 100%;
     padding: 0 20px;
 }
@@ -39,7 +39,7 @@ h1 {
     height: 50px;
     width: 150px;
     margin-left: -5px;
-    background-color: rgb(101, 211, 101);
+    background-color: rgba(167, 211, 167, 0.58);
     border-radius: 0px 3px 3px 0px;
     transition: 0.3s;
 }
@@ -57,12 +57,14 @@ h1 {
 }
 
 #container {
-    margin: 20px 0px;
+    margin: 20px 0px 150px 0px;
     padding: 20px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 200px;
+    height: 200px;
 }
 
 .btn-change {
@@ -91,6 +93,16 @@ h1 {
 .poke-name {
     text-transform: capitalize;
     font-size: 20px;
+    text-align: center;
+}
+
+.poke-id {
+    text-align: center;
+    color: #444444;
+}
+
+.poke-img {
+    width: 250px;
 }
 
 img {
