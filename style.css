@@ -16,10 +16,11 @@ body {
 
 h1 {
     font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .form {
-    margin: 20px;
+    margin: 20px 20px 40px 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
