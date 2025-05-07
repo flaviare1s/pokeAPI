@@ -75,6 +75,7 @@ h1 {
     cursor: pointer;
     background-color: transparent;
     border: none;
+    padding: 15px;
 }
 
 .btn-change img {
