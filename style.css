@@ -75,7 +75,7 @@ h1 {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    padding: 15px;
+    padding: 10px;
 }
 
 .btn-change img {
@@ -144,6 +144,6 @@ img {
     }
 
     .btn-change img {
-        width: 30px;
+        width: 40px;
     }
 }
