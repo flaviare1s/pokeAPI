@@ -14,32 +14,72 @@ const renderDetails = (details) => {
 };
 
 const loadPokemon = async (nextId) => {
-  const response = await fetch(apiURL + nextId);
-  const data = await response.json();
-  currentId = data.id;
-  renderDetails(data);
+  try {
+    const searchValue = String(nextId).toLowerCase().trim();
+    if (!searchValue) return;
+
+    const response = await fetch(apiURL + searchValue);
+    if (!response.ok) {
+      console.log("Pokémon não encontrado:", searchValue);
+      return;
+    }
+    const data = await response.json();
+    currentId = data.id;
+    renderDetails(data);
+  } catch (error) {
+    console.error("Erro ao carregar Pokémon:", error);
+  }
 };
 
+let searchTimeout;
+const handleSearch = (value) => {
+  clearTimeout(searchTimeout);
+  const trimmedValue = value.trim();
+
+  // Se for vazio, não busca
+  if (!trimmedValue) return;
+
+  // Se for número (ID), busca imediatamente
+  if (!isNaN(trimmedValue)) {
+    searchTimeout = setTimeout(() => {
+      loadPokemon(trimmedValue);
+    }, 300);
+  }
+  // Se for texto (nome), busca com no mínimo 2 caracteres
+  else if (trimmedValue.length >= 2) {
+    searchTimeout = setTimeout(() => {
+      loadPokemon(trimmedValue);
+    }, 400);
+  }
+};
 
 const loadActionEvent = () => {
   const previousButton = document.getElementById("back");
   const nextButton = document.getElementById("forward");
   const searchForm = document.getElementById("search-form");
+  const searchInput = document.getElementById("search-input");
 
   nextButton.addEventListener("click", () => {
     loadPokemon(currentId + 1);
   });
 
   previousButton.addEventListener("click", () => {
-    loadPokemon(currentId - 1);
+    if (currentId > 1) {
+      loadPokemon(currentId - 1);
+    }
   });
 
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const input = document.getElementById('search-input').value;
-    loadPokemon(input)
+    const input = searchInput.value;
+    loadPokemon(input);
+  });
+
+  // Busca automática ao digitar
+  searchInput.addEventListener("input", (e) => {
+    handleSearch(e.target.value);
   });
 };
 
 loadPokemon(currentId);
-loadActionEvent()
+loadActionEvent();
